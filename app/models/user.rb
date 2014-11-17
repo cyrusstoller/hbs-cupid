@@ -58,6 +58,8 @@ class User < ActiveRecord::Base
   has_many :cached1_percentage_results, :class_name => "CachedPercentageResult", :foreign_key => "user1_id", :dependent => :destroy
   has_many :cached2_percentage_results, :class_name => "CachedPercentageResult", :foreign_key => "user2_id", :dependent => :destroy
 
+  scope :in_section, -> (letter) { where(%(lower("#{self.table_name}"."section") = ?), letter.downcase) }
+
   protected
 
   # Allowing for devise to use either the username or email as the authentication key

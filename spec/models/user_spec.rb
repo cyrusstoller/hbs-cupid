@@ -16,6 +16,10 @@ describe User, :type => :model do
     it { expect(FactoryGirl.build(:user)).to respond_to(:answered_questions) }
   end
 
+  describe "scopes" do
+    it { expect(User).to respond_to(:in_section) }
+  end
+
   describe "class methods" do
   end
 

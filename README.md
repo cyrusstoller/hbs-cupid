@@ -1,4 +1,4 @@
-# Cupid
+# Cupid [![Build Status](https://travis-ci.org/cyrusstoller/hbs-cupid.svg)](https://travis-ci.org/cyrusstoller/hbs-cupid)
 
 ## Getting your development environment setup
 

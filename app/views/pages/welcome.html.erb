@@ -1,0 +1,19 @@
+<br>
+<h1 class="center">
+  Welcome to Cupid
+</h1>
+
+<hr>
+
+<p class="lead center">
+  Answer some quick questions and we'll help you find partners for your FIELD 3 project who have
+  similar interests, goals, work-styles, and competencies.
+</p>
+
+<div class="center">
+  <% if current_user %>
+    <%= link_to "Get Started", survey_path, :class => "button large round success" %>
+  <% else %>
+    <%= link_to "Get Started", new_user_registration_path, :class => "button large round success" %>
+  <% end %>
+</div>

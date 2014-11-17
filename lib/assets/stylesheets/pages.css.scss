@@ -1,0 +1,32 @@
+.error-messages {
+  @include panel(
+    $bg:#F2DEDE
+  );
+  border-color: #EBCCD1;
+  border-width: 2px;
+  @include radius();
+}
+
+.field_with_errors {
+  @extend .error;
+}
+
+.panel-title {
+  font-size: 1.25em;
+}
+
+.panel-body ul {
+  margin-bottom: 0px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.pull-right {
+  float: right;
+}
+
+.footer {
+  font-size: 0.75em;
+}

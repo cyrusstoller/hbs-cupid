@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 large-6 large-offset-3 columns">
+    <h2 class="no-top">Forgot your password?</h2>
+
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= render "shared/error_messages", :object => f.object %>
+
+      <%= f.label :email, :class => "control-label" %>
+      <%= f.email_field :email, :autofocus => true, :class => "form-control" %>
+
+      <%= f.submit "Send me reset password instructions", :class => "button small" %>
+    <% end %>
+    <%= render "users/shared/links" %>
+  </div>
+</div><!-- .row -->

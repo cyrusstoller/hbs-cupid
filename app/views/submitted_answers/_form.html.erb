@@ -1,0 +1,23 @@
+<%= form_for(@submitted_answer) do |f| %>
+  <%= render "shared/error_messages", :object => f.object %>
+
+  <%= f.label :user_id %>
+  <%= f.number_field :user_id %>
+
+  <%= f.label :question_id %>
+  <%= f.number_field :question_id %>
+
+  <%= f.label :answer_id %>
+  <%= f.number_field :answer_id %>
+
+  <%= f.label :accepted_answer_ids %>
+  <%= f.text_field :accepted_answer_ids %>
+
+  <%= f.label :intensity %>
+  <%= f.number_field :intensity %>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+
+  <%= f.submit nil, :class => "button small" %>
+<% end %>

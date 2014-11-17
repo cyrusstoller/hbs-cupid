@@ -1,0 +1,20 @@
+<%= form_for(@question) do |f| %>
+  <%= render "shared/error_messages", :object => f.object %>
+
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+
+  <%= f.label :background %>
+  <%= f.text_area :background %>
+
+  <hr>
+
+  <%= render "answers/nested_fields", :f => f %>
+
+  <hr>
+
+  <%= f.label :category_id %>
+  <%= f.number_field :category_id %>
+
+  <%= f.submit nil, :class => "button success radius" %>
+<% end %>

@@ -1,0 +1,14 @@
+<h2>
+  Survey Question
+  <% if current_user.admin? %>
+    #<%= @question.id %>
+  <% end %>
+
+  <small><%= @num_answers %> / <%= @num_questions %></small>
+</h2>
+
+<div class="small-12 progress success round">
+  <span class="meter" style="width: <%= @progress_percentage %>%"></span>
+</div>
+
+<%= render "submitted_answers/advanced_form" %>

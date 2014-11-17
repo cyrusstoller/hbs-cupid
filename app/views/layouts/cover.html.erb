@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= render "layouts/meta_tags" %>
+  <%= stylesheet_link_tag    "application", "cover", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link rel="shortcut icon" sizes="16x16 32x32" href="/favicon.ico">
+</head>
+<body>
+
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="inner">
+            <h3 class="masthead-brand"></h3>
+            <ul class="nav masthead-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><%= link_to "About", about_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="inner cover">
+          <%= yield %>
+        </div>
+
+        <div class="mastfoot">
+          <div class="inner">
+            <ul class="list-inline">
+              <li><%= link_to "About", about_path %></li>
+              <li>Copyright © <%= Date.current.year %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render "layouts/google_analytics" %>
+
+</body>
+</html>

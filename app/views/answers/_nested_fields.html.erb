@@ -1,0 +1,9 @@
+<h3>Answers</h3>
+
+<%= f.fields_for :answers do |builder| %>
+  <%= render "answers/nested_field", :f => builder %>
+<% end %>
+
+<div class="form-group">
+  <%= link_to_add_fields "Add new answer", f, :answers, :partial => "answers/nested_field", :class => "button" %>
+</div>

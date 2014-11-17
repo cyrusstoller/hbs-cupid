@@ -1,0 +1,46 @@
+<h2>User List</h2>
+
+<table class="full-width">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Signed Up</th>
+      <th>Admin</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= time_ago_in_words user.created_at %> ago</td>
+        <td>
+          <% if user.admin? %>
+            <span class="label label-info">Admin</span>
+          <% else %>
+            <span class="label secondary">Regular User</span>
+          <% end %>
+        </td>
+        <td>
+          <% case user.active %>
+          <% when true %>
+            <span class="label success">Active</span>
+          <% when false %>
+            <span class="label warning">Suspended</span>
+          <% else %>
+            <span class="label secondary">New User</span>
+          <% end %>
+        </td>
+        <td>
+          <% if user.active? %>
+            <%= link_to "Suspend", admin_suspend_path(:user_id => user), :class => "", :method => :patch %>
+          <% else %>
+            <%= link_to "Activate", admin_activate_path(:user_id => user), :class => "", :method => :patch %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

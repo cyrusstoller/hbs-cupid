@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 large-6 large-offset-3 columns">
+    <h2 class="no-top">Resend unlock instructions</h2>
+
+    <%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= render "shared/error_messages", :object => f.object %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true %>
+
+      <%= f.submit "Resend unlock instructions" %>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div><!-- .row -->

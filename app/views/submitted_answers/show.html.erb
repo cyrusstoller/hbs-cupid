@@ -1,0 +1,33 @@
+<h1>Submitted Answer #<%= @submitted_answer.id %></h1>
+
+<table class="full-width">
+  <tbody>
+    <tr>
+      <td>User</td>
+      <td><%= @submitted_answer.user.username rescue "N/A" %> (<%= @submitted_answer.user_id %>)</td>
+    </tr>
+    <tr>
+      <td>Question</td>
+      <td><%= @submitted_answer.question_id %></td>
+    </tr>
+    <tr>
+      <td>Answer</td>
+      <td><%= @submitted_answer.answer_id %></td>
+    </tr>
+    <tr>
+      <td>Accepted Answers</td>
+      <td><%= @submitted_answer.accepted_answer_ids %></td>
+    </tr>
+    <tr>
+      <td>Intensity</td>
+      <td><%= @submitted_answer.intensity %></td>
+    </tr>
+    <tr>
+      <td>Comment</td>
+      <td><%= @submitted_answer.comment %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_submitted_answer_path(@submitted_answer) %> |
+<%= link_to 'Back', submitted_answers_path %>

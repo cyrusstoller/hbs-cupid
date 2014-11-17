@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="medium-9 columns">
+    <h1>Submitted Answers</h1>
+  </div>
+
+  <div class="medium-3 columns">
+    <div class="add-top">
+      <%= link_to 'Add New Submitted Answer', new_submitted_answer_path, :class => "button small success pull-right" %>
+    </div>
+  </div>
+</div>
+
+<table class="full-width">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Question</th>
+      <th>Answer</th>
+      <th class="center">Accepted Answers</th>
+      <th>Intensity</th>
+      <th>Comment</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @submitted_answers.each do |submitted_answer| %>
+      <tr>
+        <td><%= submitted_answer.user_id %></td>
+        <td><%= submitted_answer.question_id %></td>
+        <td><%= submitted_answer.answer_id %></td>
+        <td class="center"><%= submitted_answer.accepted_answer_ids %></td>
+        <td><%= submitted_answer.intensity %></td>
+        <td><%= submitted_answer.comment %></td>
+        <td>
+          <ul class="button-group radius">
+            <li><%= link_to 'Show', submitted_answer, :class => "button tiny secondary no-bottom" %></li>
+            <li><%= link_to 'Edit', edit_submitted_answer_path(submitted_answer), :class => "button tiny secondary no-bottom" %></li>
+            <li>
+              <%= link_to 'Destroy', submitted_answer, method: :delete, data: { confirm: 'Are you sure?' }, 
+                :class => "button tiny alert no-bottom" %>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @submitted_answers, renderer: FoundationPagination::Rails %>

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="medium-9 columns">
+    <h1>Questions</h1>
+  </div>
+
+  <div class="medium-3 columns">
+    <div class="add-top">
+      <%= link_to 'Add New Question', new_question_path, :class => "button small success pull-right" %>
+    </div>
+  </div>
+</div>
+
+<table class="full-width">
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Background</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= link_to question.text, question %></td>
+        <td><%= question.background %></td>
+        <td>
+          <ul class="button-group radius">
+            <li><%= link_to 'Show', question, :class => "button tiny secondary no-bottom" %></li>
+            <li><%= link_to 'Edit', edit_question_path(question), :class => "button tiny secondary no-bottom" %></li>
+            <li>
+              <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }, 
+                :class => "button tiny alert no-bottom" %>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @questions, renderer: FoundationPagination::Rails %>

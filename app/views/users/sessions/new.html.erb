@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 large-6 large-offset-3 columns">
+    <h2 class="no-top">Sign in or <%= link_to "create an account", new_user_registration_path %></h2>
+
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <%= f.label :login %>
+      <%= f.text_field :login, :autofocus => true %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="remember-me">
+          <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <%= f.submit "Sign in", :class => "button small" %>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div><!-- .row -->

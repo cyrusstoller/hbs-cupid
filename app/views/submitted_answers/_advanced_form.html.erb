@@ -1,0 +1,53 @@
+<%= form_for @submitted_answer, :html => { :class => "form-vertical" } do |f| %>
+  <%= f.hidden_field :question_id %>
+  <%= hidden_field_tag :redirect, survey_path %>
+  
+  <div class="panel">
+    <h4><%= @question.text %></h4>
+
+    <% unless @question.background.blank? %>
+      <p><%= @question.background %></p>
+    <% end %>
+
+    <% @question.answers.each do |answer| %>
+      <label class="radio">
+        <%= f.radio_button :answer_id, answer.to_param, :class => "no-bottom" %>
+        <%= answer.body %>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="panel">
+    <h5>For the above question, my preferred teammates will answer: <small><b>(pick as many as you want)</b></small></h5>
+    <% @question.answers.each do |answer| %>
+      <label class="checkbox">
+        <%= check_box_tag "submitted_answer[accepted_answers_params][]", answer.to_param, 
+          (@submitted_answer.accepted_answer_ids || []).map(&:to_s).include?(answer.to_param),
+          :class => "no-bottom accepted-answer-check-box" %>
+        <%= answer.body %>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="panel">
+    <h5>How important is it that your teammates pick one of the answers you selected above?</h5>
+    <ul class="inline-list">
+      <% SubmittedAnswer.intensity_text.each do |k,v| %>
+        <li>
+          <label class="radio">
+            <%= f.radio_button :intensity, k, :class => "no-bottom intensity-radio-button" %>
+            <%= v %>
+          </label>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <h5>Comments</h5>
+  <%= f.text_area :comment, :rows => 3, :class => "", :placeholder => "(optional)" %>
+  
+  <div class="form-actions">
+    <%= f.submit "Submit Answer", :class => "button small" %>
+    <%= link_to "Skip Question", survey_path(:skip => @question.to_param), :class => "button small secondary" %>
+  </div>
+<% end %>

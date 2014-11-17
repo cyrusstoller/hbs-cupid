@@ -1,0 +1,37 @@
+<h1>
+  Question Details #<%= @question.id %>
+  <small><%= link_to "edit", edit_question_path(@question) %></small>
+</h1>
+
+<% unless @question.category_id.blank? %>
+  <strong>Category:</strong>
+  <span class="label"><%= @question.category_id %></span>
+<% end %>
+
+<hr>
+
+<h4>Text</h4>
+<p class="panel">
+  <%= @question.text %>
+</p>
+
+<% unless @question.background.blank? %>
+  <h4>Background</h4>
+  <p class="panel">
+    <%= @question.background %>
+  </p>  
+<% end %>
+
+<h2>Answers</h2>
+
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.body %></li>    
+  <% end %>
+</ul>
+
+<%= link_to 'Back', questions_path, :class => "button secondary small radius" %>
+<%= link_to 'Edit', edit_question_path(@question), :class => "button secondary small radius" %>
+<%= link_to 'Destroy', @question, method: :delete, data: { confirm: 'Are you sure?' }, 
+      :class => "button small alert radius" %>
+<%= link_to 'New Question', new_question_path, :class => "button success small radius" %>

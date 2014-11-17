@@ -1,0 +1,64 @@
+<div class="contain-to-grid">
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Cupid", root_path %></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="left">
+        <% unless Rails.env.production? %>
+          <li>
+            <a class="disable">
+              <span class="label">
+                <%= Rails.env %>
+              </span>
+            </a>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to "About", about_path %>
+        </li>
+      </ul>
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <% if user_signed_in? %>
+          <li class="has-dropdown">
+            <%= link_to "#" do %>
+              <%= current_user.username %>
+              <% if current_user.admin? %>
+                &nbsp;
+                <span class="label alert">Admin</span>
+              <% end %>
+            <% end %>
+
+            <ul class="dropdown">
+              <% if can? :manage, Question %>
+                <li><%= link_to "Manage Questions", questions_path %></li>
+              <% end %>
+
+              <% if can? :manage, SubmittedAnswer %>
+                <li><%= link_to "Submitted Answers", submitted_answers_path %></li>
+              <% end %>
+
+              <% if current_user.admin? %>
+                <li class="divider"></li>
+                <li><%= link_to "User List", admin_user_list_path %></li>
+              <% end %>
+
+              <li><%= link_to "Settings", edit_user_registration_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="active"><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+</div>

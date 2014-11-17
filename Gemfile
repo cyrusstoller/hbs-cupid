@@ -5,7 +5,7 @@ gem 'rails', '4.1.8'
 gem 'pg', '0.17.1'
 
 gem 'sass-rails', '~> 4.0.3'
-gem 'coffee-rails', '~> 4.0.1'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 2.5.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -22,15 +22,15 @@ gem 'foundation-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.1.3'
+gem 'jbuilder', '~> 2.2.5'
 
 group :development, :test do
-  gem "foreman", "~> 0.74.0"
+  gem "foreman", "~> 0.75.0"
   
   gem 'annotate', '~> 2.6.3'
-  gem "rspec-rails", "~> 3.0.1"
+  gem "rspec-rails", "~> 3.1.0"
   gem "guard-rspec", "~> 4.3.1", :require => false
-  gem "factory_girl_rails", "~> 4.4.0"
+  gem "factory_girl_rails", "~> 4.5.0"
 
   gem 'spring', '~> 1.1.3'
   gem "spring-commands-rspec"
@@ -70,7 +70,7 @@ gem 'unicorn', '~> 4.8.2'
 gem 'unicorn-worker-killer', "~> 0.4.2"
 
 # Authentication
-gem "devise", "~> 3.2.4"
+gem "devise", "~> 3.4.1"
 gem "cancancan", "~> 1.9.2"
 
 # Use debugger

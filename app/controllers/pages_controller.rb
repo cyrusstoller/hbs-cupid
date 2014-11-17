@@ -26,7 +26,7 @@ class PagesController < ApplicationController
       return
     end
 
-    @num_answers = current_user.submitted_answers.count
+    @num_answers = current_user.submitted_answers.count + 1
     @num_questions = Question.count
     @progress_percentage = (@num_answers.to_f / @num_questions * 100).to_i
 

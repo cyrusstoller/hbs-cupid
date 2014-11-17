@@ -6,6 +6,7 @@ Cupid::Application.routes.draw do
   get '/thanks'   => 'pages#thanks'
 
   get   'admin/user_list'
+  get   'admin/section_list'
   patch 'admin/activate/:user_id' => 'admin#activate', :as => "admin_activate"
   patch 'admin/suspend/:user_id'  => 'admin#suspend',  :as => "admin_suspend"
 

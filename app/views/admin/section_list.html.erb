@@ -1,0 +1,19 @@
+<h2>Section List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @section_count.each do |k,v| %>
+      <tr>
+        <td><%= k %></td>
+        <td><%= v %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

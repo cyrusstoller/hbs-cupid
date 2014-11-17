@@ -1,11 +1,18 @@
 class AdminController < ApplicationController
-  before_action :get_user, :except => [:user_list]
+  before_action :get_user, :except => [:user_list, :section_list]
 
   # GET /admin/user_list
   def user_list
     authorize! :user_list, User
     @title = "User List"
     @users = User.order(email: :asc).paginate(:page => params[:page])
+  end
+
+  # GET /admin/section_list
+  def section_list
+    authorize! :section_list, User
+    @title = "Section List"
+    @section_count = User.order(section: :asc).group(:section).count
   end
 
   # PATCH /admin/activate/:user_id

@@ -47,6 +47,7 @@
               <% if current_user.admin? %>
                 <li class="divider"></li>
                 <li><%= link_to "User List", admin_user_list_path %></li>
+                <li><%= link_to "Section List", admin_section_list_path %></li>
               <% end %>
 
               <li><%= link_to "Settings", edit_user_registration_path %></li>

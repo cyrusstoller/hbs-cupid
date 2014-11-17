@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe AdminController, :type => :controller do
+  render_views
+
   let(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
@@ -11,6 +13,13 @@ RSpec.describe AdminController, :type => :controller do
   describe "GET user_list" do
     it "returns http success" do
       get :user_list
+      expect(response).to be_success
+    end
+  end
+
+  describe "GET section_list" do
+    it "returns http success" do
+      get :section_list
       expect(response).to be_success
     end
   end

@@ -7,7 +7,7 @@ FactoryGirl.define do
     category_id 1
     skip_association_validation true
 
-    ignore do
+    transient do
       answer_count 5
     end
 

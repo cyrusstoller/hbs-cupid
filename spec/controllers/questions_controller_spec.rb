@@ -19,6 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe QuestionsController, :type => :controller do
+  render_views
 
   before(:each) do
     @user = FactoryGirl.create(:user, :admin => true)
@@ -32,7 +33,7 @@ RSpec.describe QuestionsController, :type => :controller do
     { :text => "Hello", :background => "wow", :category_id => "2",
       :answers_attributes => [ {:body => "answer 1", :_destroy => false}, 
                                {:body => "answer 2", :_destroy => false}]
-     }
+    }
   }
 
   let(:invalid_attributes) {

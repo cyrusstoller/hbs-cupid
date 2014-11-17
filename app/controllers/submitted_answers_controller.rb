@@ -54,6 +54,7 @@ class SubmittedAnswersController < ApplicationController
         format.html { redirect_to @submitted_answer, notice: 'Submitted answer was successfully updated.' }
         format.json { render :show, status: :ok, location: @submitted_answer }
       else
+        @question = @submitted_answer.question || Question.new
         format.html { render :edit }
         format.json { render json: @submitted_answer.errors, status: :unprocessable_entity }
       end

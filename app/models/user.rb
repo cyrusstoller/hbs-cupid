@@ -60,6 +60,12 @@ class User < ActiveRecord::Base
 
   scope :in_section, -> (letter) { where(%(lower("#{self.table_name}"."section") = ?), letter.downcase) }
 
+  def self.section_names
+    ("A".."J").map do |letter|
+      ["Section #{letter}", letter]
+    end
+  end
+
   protected
 
   # Allowing for devise to use either the username or email as the authentication key

@@ -11,6 +11,9 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 
+      <%= f.label :section %>
+      <%= f.select :section, User.section_names, :prompt => "Please select your HBS section" %>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>

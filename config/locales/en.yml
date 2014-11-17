@@ -26,3 +26,4 @@ en:
     attributes:
       user:
         login: "Username or Email"
+        section: "HBS Section"

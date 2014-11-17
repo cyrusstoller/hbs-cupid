@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20140919092029
+# Schema version: 20141117214934
 #
 # Table name: users
 #
@@ -26,6 +26,7 @@
 #  username               :string(255)
 #  active                 :boolean
 #  admin                  :boolean
+#  section                :string(255)
 #
 # Indexes
 #
@@ -34,6 +35,7 @@
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_section               (section)
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #  index_users_on_username              (username) UNIQUE
 #

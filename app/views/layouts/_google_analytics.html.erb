@@ -4,6 +4,6 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', '<%= APP_CONFIG["google_analytics"][Rails.env] %>', '<%= APP_CONFIG["google_analytics"]["domain"] %>');
+  ga('create', '<%= APP_CONFIG["google_analytics"][Rails.env] %>', 'auto');
   ga('send', 'pageview');
 </script>

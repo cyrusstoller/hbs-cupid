@@ -4,5 +4,5 @@ google_analytics:
   development: UA-XXXXXXXX-X
   test: UA-XXXXXXXX-Y
   staging: UA-XXXXXXXX-Z
-  production: UA-XXXXXXXX-W
-  domain: example.com
+  production: UA-40142348-2
+  domain: cupid.cyrusstoller.com

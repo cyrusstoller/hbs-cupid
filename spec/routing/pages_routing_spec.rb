@@ -11,5 +11,9 @@ describe PagesController, :type => :routing do
       expect(get("/survey")).to route_to("pages#survey")
     end
 
+    it "routes to the thanks page" do
+      expect(get("/thanks")).to route_to("pages#thanks")
+    end
+
   end
 end

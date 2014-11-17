@@ -52,13 +52,20 @@ describe PagesController, :type => :controller do
 
     it "redirects to the about page" do
       get 'survey'
-      expect(response).to redirect_to(about_path)
+      expect(response).to redirect_to(thanks_path)
     end
 
     it "should redirect to the about page if the last question is skipped" do
       q2 = FactoryGirl.create(:question)
       get 'survey', :skip => q2.to_param
-      expect(response).to redirect_to(about_path)
+      expect(response).to redirect_to(thanks_path)
+    end
+  end
+
+  describe "GET 'thanks'" do
+    it "returns http success" do
+      get 'thanks'
+      expect(response).to be_success
     end
   end
 end

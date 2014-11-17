@@ -22,7 +22,7 @@ class PagesController < ApplicationController
 
     if @question.nil?
       flash[:info] = "You've answered all of our survey questions!"
-      redirect_to :action => :about
+      redirect_to :action => :thanks
       return
     end
 
@@ -33,5 +33,9 @@ class PagesController < ApplicationController
     @submitted_answer = current_user.submitted_answers.build(:question_id => @question.id,
                                                              :answer_id => (@question.answers.first.id rescue nil),
                                                              :intensity => 3)
+  end
+
+  def thanks
+    @title = "Thanks"
   end
 end

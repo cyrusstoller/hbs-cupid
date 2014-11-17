@@ -3,6 +3,7 @@ Cupid::Application.routes.draw do
   root :to => 'pages#welcome'
   get '/about'    => 'pages#about'
   get '/survey'   => 'pages#survey'
+  get '/thanks'   => 'pages#thanks'
 
   get   'admin/user_list'
   patch 'admin/activate/:user_id' => 'admin#activate', :as => "admin_activate"

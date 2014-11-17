@@ -5,7 +5,7 @@ class AdminController < ApplicationController
   def user_list
     authorize! :user_list, User
     @title = "User List"
-    @users = User.order(email: :asc)
+    @users = User.order(email: :asc).paginate(:page => params[:page])
   end
 
   # PATCH /admin/activate/:user_id

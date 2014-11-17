@@ -3,6 +3,7 @@
 <table class="full-width">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Email</th>
       <th>Signed Up</th>
       <th>Admin</th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.id %></td>
         <td><%= user.email %></td>
         <td><%= time_ago_in_words user.created_at %> ago</td>
         <td>
@@ -44,3 +46,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @users, renderer: FoundationPagination::Rails %>

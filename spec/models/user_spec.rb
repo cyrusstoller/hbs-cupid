@@ -9,6 +9,8 @@ describe User, :type => :model do
 
     it { expect(FactoryGirl.build(:user, :username => nil)).not_to be_valid }
     it { expect(FactoryGirl.build(:user, :username => "")).to_not be_valid}
+    it { expect(FactoryGirl.build(:user, :section => nil)).to_not be_valid}
+    it { expect(FactoryGirl.build(:user, :section => "")).to_not be_valid}
   end
   
   describe "database relationships" do

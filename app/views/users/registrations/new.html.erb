@@ -5,7 +5,9 @@
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= render "shared/error_messages", :object => f.object %>
 
+      <%= f.label :section %>
       <%= f.select :section, User.section_names, :prompt => "Please select your HBS section" %>
+      <br>
 
       <%= f.label :username %>
       <%= f.text_field :username %>

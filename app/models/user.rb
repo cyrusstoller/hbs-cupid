@@ -51,6 +51,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
   validates_format_of :username, :with => /\A[\w]+\z/, :on => :create, :message => "cannot have whitespace"
+  validates_presence_of :section
 
   has_many :submitted_answers, :class_name => "SubmittedAnswer", :foreign_key => "user_id", :dependent => :destroy
   has_many :answered_questions, :through => :submitted_answers, :source => :question, :dependent => :destroy

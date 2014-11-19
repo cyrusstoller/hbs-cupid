@@ -19,6 +19,20 @@ RSpec.describe Ability do
 
     it { should be_able_to(:create, SubmittedAnswer) }
     it { should_not be_able_to(:show, SubmittedAnswer) }
+
+    describe "Update Submitted Answer" do
+      it "should not be able to update another user's submitted_answer" do
+        sa = FactoryGirl.create(:submitted_answer, :user_id => user.id + 1)
+        should_not be_able_to(:update, sa)
+      end
+
+      it "should be able to update his/her own submitted_answer" do
+        sa = FactoryGirl.create(:submitted_answer, :user_id => user.id)
+        should be_able_to(:edit, sa)
+        should be_able_to(:update, sa)
+        should_not be_able_to(:manage, sa)
+      end
+    end
   end
 
   describe "activated user" do

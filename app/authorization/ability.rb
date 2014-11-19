@@ -10,6 +10,7 @@ class Ability
     end
 
     can :create, SubmittedAnswer
+    can :update, SubmittedAnswer, :user_id => user.id
 
     if user.active?
       can :manage, Question

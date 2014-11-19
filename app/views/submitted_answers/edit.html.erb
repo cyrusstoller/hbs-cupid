@@ -1,10 +1,12 @@
-<h1>Editing submitted_answer</h1>
-
-<%= render 'form' %>
-
-<hr>
+<h1>Revise a previous answer</h1>
 
 <%= render 'advanced_form' %>
+
+<% if can? :manage, SubmittedAnswer %>
+  <hr>
+  <%= render 'form' %>
+<% end %>
+
 
 <%= link_to 'Show', @submitted_answer %> |
 <%= link_to 'Back', submitted_answers_path %>

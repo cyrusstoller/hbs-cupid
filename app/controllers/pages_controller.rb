@@ -41,7 +41,7 @@ class PagesController < ApplicationController
 
   def my_answers
     @title = "My Answers"
-    @submitted_answers = current_user.submitted_answers.paginate(:page => params[:page])
+    @submitted_answers = current_user.submitted_answers.includes(:question => :answers).includes(:answer).paginate(:page => params[:page])
     if @current_user.submitted_answers.count == 0
       flash[:notice] = "You need to answer some questions first!"
       redirect_to :action => :survey

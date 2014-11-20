@@ -1,1 +1,33 @@
 <h1>My Answers</h1>
+
+<% @submitted_answers.each do |submitted_answer| %>
+  <% if submitted_answer.question %>
+    <div class="panel">
+      <%= link_to "edit response", edit_submitted_answer_path(submitted_answer, :redirect => my_answers_path), 
+        :class => "button tiny warning pull-right" %>
+
+      <h4>
+        <%= submitted_answer.question.text %>
+      </h4>
+
+      <strong>My Answer:</strong>
+      <%= submitted_answer.answer.body %>
+
+      <br>
+
+      <strong>Accepted Answers:</strong>
+      <ul class="no-bottom">
+        <% submitted_answer.question.answers.each do |answer| %>
+          <% if submitted_answer.accepted_answer_ids.include?(answer.id) %>
+            <li><%= answer.body %></li>
+          <% end %>
+        <% end %>
+      </ul>
+
+      <strong>Intensity:</strong>
+      <%= SubmittedAnswer.intensity_text[submitted_answer.intensity] %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= will_paginate @submitted_answers, renderer: FoundationPagination::Rails %>

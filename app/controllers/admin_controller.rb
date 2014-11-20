@@ -5,7 +5,12 @@ class AdminController < ApplicationController
   def user_list
     authorize! :user_list, User
     @title = "User List"
-    @users = User.order(email: :asc).paginate(:page => params[:page])
+
+    if params[:section].present?
+      @users = User.order(id: :desc).in_section(params[:section]).paginate(:page => params[:page])
+    else
+      @users = User.order(email: :asc).paginate(:page => params[:page])
+    end
   end
 
   # GET /admin/section_list

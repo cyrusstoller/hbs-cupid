@@ -11,7 +11,7 @@
   <tbody>
     <% @section_count.each do |k,v| %>
       <tr>
-        <td><%= k %></td>
+        <td><%= link_to k, admin_user_list_path(:section => k) %></td>
         <td><%= v %></td>
       </tr>
     <% end %>

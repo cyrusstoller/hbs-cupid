@@ -15,6 +15,11 @@ RSpec.describe AdminController, :type => :controller do
       get :user_list
       expect(response).to be_success
     end
+
+    it "returns http success" do
+      get :user_list, :section => "j"
+      expect(response).to be_success
+    end
   end
 
   describe "GET section_list" do

@@ -120,23 +120,28 @@ RSpec.describe SubmittedAnswersController, :type => :controller do
         { :question_id => 1, :answer_id => 1, :accepted_answer_ids => [1,2,3], :intensity => 2, :comment => new_comment }
       }
 
+      let(:submitted_answer) { FactoryGirl.create(:submitted_answer) }
+
       it "updates the requested submitted_answer" do
-        submitted_answer = FactoryGirl.create(:submitted_answer)
         put :update, {:id => submitted_answer.to_param, :submitted_answer => new_attributes}, valid_session
         submitted_answer.reload
         expect(submitted_answer.comment).to eq(new_comment)
       end
 
       it "assigns the requested submitted_answer as @submitted_answer" do
-        submitted_answer = FactoryGirl.create(:submitted_answer)
         put :update, {:id => submitted_answer.to_param, :submitted_answer => valid_attributes}, valid_session
         expect(assigns(:submitted_answer)).to eq(submitted_answer)
       end
 
       it "redirects to the submitted_answer" do
-        submitted_answer = FactoryGirl.create(:submitted_answer)
         put :update, {:id => submitted_answer.to_param, :submitted_answer => valid_attributes}, valid_session
         expect(response).to redirect_to(submitted_answer)
+      end
+
+      it "redirects to the redirect parameter" do
+        put :update, {:id => submitted_answer.to_param, :submitted_answer => valid_attributes,
+                      :redirect => root_path}, valid_session
+        expect(response).to redirect_to(root_path)
       end
     end
 

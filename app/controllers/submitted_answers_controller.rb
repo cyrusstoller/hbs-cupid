@@ -51,7 +51,7 @@ class SubmittedAnswersController < ApplicationController
     authorize! :update, @submitted_answer
     respond_to do |format|
       if @submitted_answer.update(submitted_answer_params)
-        format.html { redirect_to @submitted_answer, notice: 'Submitted answer was successfully updated.' }
+        format.html { redirect_to (params[:redirect] || @submitted_answer), notice: 'Submitted answer was successfully updated.' }
         format.json { render :show, status: :ok, location: @submitted_answer }
       else
         @question = @submitted_answer.question || Question.new

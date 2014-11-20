@@ -49,7 +49,7 @@
   <%= f.text_area :comment, :rows => 3, :class => "", :placeholder => "(optional)" %>
   
   <div class="form-actions">
-    <%= f.submit "Submit Answer", :class => "button small" %>
+    <%= f.submit "Submit Answer", :class => "button small submitted_answer_commit disabled" %>
     <%= link_to "Skip Question", survey_path(:skip => @question.to_param), :class => "button small secondary" %>
   </div>
 <% end %>

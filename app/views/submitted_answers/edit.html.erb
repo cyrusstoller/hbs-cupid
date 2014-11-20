@@ -1,6 +1,6 @@
 <h1>Revise a previous answer</h1>
 
-<%= render 'advanced_form' %>
+<%= render 'advanced_form', :redirect => params[:redirect] %>
 
 <% if can? :manage, SubmittedAnswer %>
   <hr>

@@ -1,6 +1,8 @@
+<% redirect ||= survey_path %>
+
 <%= form_for @submitted_answer, :html => { :class => "form-vertical" } do |f| %>
   <%= f.hidden_field :question_id %>
-  <%= hidden_field_tag :redirect, survey_path %>
+  <%= hidden_field_tag :redirect, redirect %>
   
   <div class="panel">
     <h4><%= @question.text %></h4>

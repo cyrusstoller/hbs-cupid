@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: [:survey]
+  before_action :authenticate_user!, only: [:survey, :my_answers]
 
   def welcome
     @title = "Welcome"
@@ -37,5 +37,14 @@ class PagesController < ApplicationController
 
   def thanks
     @title = "Thanks"
+  end
+
+  def my_answers
+    @title = "My Answers"
+    @submitted_answers = current_user.submitted_answers.paginate(:page => params[:page])
+    if @current_user.submitted_answers.count == 0
+      flash[:notice] = "You need to answer some questions first!"
+      redirect_to :action => :survey
+    end
   end
 end

@@ -68,4 +68,22 @@ describe PagesController, :type => :controller do
       expect(response).to be_success
     end
   end
+
+  describe "GET 'my_answers'" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    end
+
+    it "returns http success" do
+      FactoryGirl.create(:submitted_answer, :user => @user)
+      get 'my_answers'
+      expect(response).to be_success
+    end
+
+    it "redirects to the survey when there are no answers" do
+      get 'my_answers'
+      expect(response).to redirect_to(survey_path)
+    end
+  end
 end

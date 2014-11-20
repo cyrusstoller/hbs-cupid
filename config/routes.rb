@@ -1,9 +1,10 @@
 Cupid::Application.routes.draw do
   devise_for :users
   root :to => 'pages#welcome'
-  get '/about'    => 'pages#about'
-  get '/survey'   => 'pages#survey'
-  get '/thanks'   => 'pages#thanks'
+  get '/about'      => 'pages#about'
+  get '/survey'     => 'pages#survey'
+  get '/thanks'     => 'pages#thanks'
+  get '/my_answers' => 'pages#my_answers'
 
   get   'admin/user_list'
   get   'admin/section_list'

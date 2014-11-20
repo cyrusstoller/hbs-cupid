@@ -8,5 +8,7 @@
 <% end %>
 
 
-<%= link_to 'Show', @submitted_answer %> |
-<%= link_to 'Back', submitted_answers_path %>
+<% if can? :show, @submitted_answer %>
+  <%= link_to 'Show', @submitted_answer %> |
+  <%= link_to 'Back', submitted_answers_path %>
+<% end %>

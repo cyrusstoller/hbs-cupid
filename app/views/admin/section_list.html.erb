@@ -3,16 +3,23 @@
 <table>
   <thead>
     <tr>
-      <th>Section</th>
-      <th>Count</th>
+      <th class="center">Section</th>
+      <th class="center">Count</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @section_count.each do |k,v| %>
       <tr>
-        <td><%= link_to k, admin_user_list_path(:section => k) %></td>
-        <td><%= v %></td>
+        <td class="center"><%= link_to k, admin_user_list_path(:section => k) %></td>
+        <td class="center"><%= v %></td>
+        <td>
+          <ul class="button-group radius">
+            <li><%= link_to "Activate", nil, :class => "button success tiny no-bottom" %></li>
+            <li><%= link_to "Deactivate", nil, :class => "button warning tiny no-bottom" %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>

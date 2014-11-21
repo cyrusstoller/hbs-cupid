@@ -16,8 +16,14 @@
         <td class="center"><%= v %></td>
         <td>
           <ul class="button-group radius">
-            <li><%= link_to "Activate", nil, :class => "button success tiny no-bottom" %></li>
-            <li><%= link_to "Deactivate", nil, :class => "button warning tiny no-bottom" %></li>
+            <li>
+              <%= link_to "Activate", admin_activate_section_path(:section => k), :method => :patch, 
+                 :class => "button success tiny no-bottom" %>
+            </li>
+            <li>
+              <%= link_to "Deactivate", admin_deactivate_section_path(:section => k), :method => :patch, 
+                :class => "button warning tiny no-bottom" %>
+            </li>
           </ul>
         </td>
       </tr>

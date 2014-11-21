@@ -8,6 +8,8 @@ Cupid::Application.routes.draw do
 
   get   'admin/user_list'
   get   'admin/section_list'
+  patch 'admin/activate_section/:section'   => 'admin#activate_section',   :as => "admin_activate_section"
+  patch 'admin/deactivate_section/:section' => 'admin#deactivate_section', :as => "admin_deactivate_section"
   patch 'admin/activate/:user_id' => 'admin#activate', :as => "admin_activate"
   patch 'admin/suspend/:user_id'  => 'admin#suspend',  :as => "admin_suspend"
 

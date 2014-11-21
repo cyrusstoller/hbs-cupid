@@ -30,14 +30,14 @@
           <% when true %>
             <span class="label success">Active</span>
           <% when false %>
-            <span class="label warning">Suspended</span>
+            <span class="label warning">Deactivated</span>
           <% else %>
             <span class="label secondary">New User</span>
           <% end %>
         </td>
         <td>
           <% if user.active? %>
-            <%= link_to "Suspend", admin_suspend_path(:user_id => user), :class => "", :method => :patch %>
+            <%= link_to "Deactivate", admin_suspend_path(:user_id => user), :class => "", :method => :patch %>
           <% else %>
             <%= link_to "Activate", admin_activate_path(:user_id => user), :class => "", :method => :patch %>
           <% end %>

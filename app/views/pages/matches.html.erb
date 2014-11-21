@@ -1,18 +1,29 @@
+<% tier_num = 0 %>
+
 <h1>My Matches</h1>
 
 <ul>
-  <% @cached_results.each do |cr| %>
-    <% begin %>
-    <li>
-      <% if cr.user1 == current_user %>
-        <%= cr.user2.username %> - <%= cr.user2.email %>
-      <% else %>
-        <%= cr.user1.username %> - <%= cr.user1.email %>
-      <% end %>
+  <% @cached_results.in_groups_of(15).each do |tier| %>
+    <% tier_num += 1 %>
+    <h3>Tier <%= tier_num %></h3>
 
-      ( <%= (cr.final_score * 100).round(0) %>% )
-    </li>
-    <% rescue %>
+    <% tier.each do |cr| %>
+      <% begin %>
+        <% unless cr.nil? %>
+          <li>
+            <% if cr.user1_id == @user.id %>
+              <%= cr.user2.username %> - <%= cr.user2.email %>
+            <% elsif cr.user2_id == @user.id %>
+              <%= cr.user1.username %> - <%= cr.user1.email %>
+            <% end %>
+
+            <% if current_user.admin? %>
+              ( <%= (cr.final_score * 100).round(0) %>% )
+            <% end %>
+          </li>
+        <% end %>
+      <% rescue %>
+      <% end %>
     <% end %>
   <% end %>
 </ul>

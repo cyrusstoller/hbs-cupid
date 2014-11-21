@@ -23,6 +23,28 @@ describe User, :type => :model do
   end
 
   describe "class methods" do
+    it "should respond to :find_by_username" do
+      expect(User).to respond_to(:find_by_username)
+    end
+    
+    it "should return the same user in both searches" do
+      user = FactoryGirl.create(:user)
+      expect(User.find_by_username(user.username.upcase)).to eq(user)
+      expect(User.find_by_username(user.username.downcase)).to eq(user)
+      expect(User.find_by_username(user.username)).to eq(user)
+    end
+    
+    it "should raise ActiveRecord::RecordNotFound if there is no user with that username" do
+      expect {
+        User.find_by_username("abc")
+      }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+    
+    it "should raise ActiveRecord::RecordNotFound if it is passed nil as the username" do
+      expect {
+        User.find_by_username(nil)
+      }.to raise_error(ActiveRecord::RecordNotFound)
+    end
   end
 
   describe "instance methods" do

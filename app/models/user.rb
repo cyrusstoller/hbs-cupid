@@ -67,6 +67,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.find_by_username(username)
+    username ||= ""
+    user = where("lower(username) = :value", :value => username.downcase).first
+    raise ActiveRecord::RecordNotFound if user.blank?
+    return user
+  end
+
   protected
 
   # Allowing for devise to use either the username or email as the authentication key

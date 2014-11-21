@@ -86,4 +86,24 @@ describe PagesController, :type => :controller do
       expect(response).to redirect_to(survey_path)
     end
   end
+
+  describe "GET 'matches'" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    end
+
+    it "should return http success" do
+      @user2 = FactoryGirl.create(:user)
+      @cr = FactoryGirl.create(:cached_percentage_result, :user1 => @user, :user2 => @user2)
+
+      get 'matches', :username => @user.username
+      expect(response).to be_success
+    end
+
+    it "should redirect if there are no results" do
+      get 'matches', :username => @user.username
+      expect(response).to redirect_to(root_path)
+    end
+  end
 end

@@ -1,0 +1,18 @@
+<h1>My Matches</h1>
+
+<ul>
+  <% @cached_results.each do |cr| %>
+    <% begin %>
+    <li>
+      <% if cr.user1 == current_user %>
+        <%= cr.user2.username %> - <%= cr.user2.email %>
+      <% else %>
+        <%= cr.user1.username %> - <%= cr.user1.email %>
+      <% end %>
+
+      ( <%= (cr.final_score * 100).round(0) %>% )
+    </li>
+    <% rescue %>
+    <% end %>
+  <% end %>
+</ul>

@@ -26,6 +26,10 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <% if user_signed_in? %>
+          <% if current_user.active? %>
+            <li><%= link_to "My Matches", matches_path(:username => current_user.username) %></li>
+          <% end %>
+
           <% if can? :section_list, User %>
             <li><%= link_to "Section List", admin_section_list_path %></li>
           <% end %>

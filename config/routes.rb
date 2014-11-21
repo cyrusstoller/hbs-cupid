@@ -5,6 +5,7 @@ Cupid::Application.routes.draw do
   get '/survey'     => 'pages#survey'
   get '/thanks'     => 'pages#thanks'
   get '/my_answers' => 'pages#my_answers'
+  get '/matches/:username'    => 'pages#matches', :as => "matches"
 
   get   'admin/user_list'
   get   'admin/section_list'

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: [:survey, :my_answers]
+  before_action :authenticate_user!, only: [:survey, :my_answers, :matches]
 
   def welcome
     @title = "Welcome"
@@ -45,6 +45,17 @@ class PagesController < ApplicationController
     if @current_user.submitted_answers.count == 0
       flash[:notice] = "You need to answer some questions first!"
       redirect_to :action => :survey
+    end
+  end
+
+  def matches
+    @user = User.find_by_username(params[:username])
+    @title = "Matches for #{@user.username}"
+    @cached_results = CachedPercentageResult.find_with_user(@user).order(final_score: :desc).where("final_score > 0.70").limit(18)
+
+    if @cached_results.empty?
+      flash[:notice] = "Sorry your matches have not been calculated yet."
+      redirect_to root_path
     end
   end
 end

@@ -13,7 +13,7 @@ class Ability
     can :update, SubmittedAnswer, :user_id => user.id
 
     if user.active?
-      can :manage, Question
+      can :view_matches, User, :id => user.id
     end
   end
 end

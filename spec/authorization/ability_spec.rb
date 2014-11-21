@@ -39,6 +39,7 @@ RSpec.describe Ability do
     let(:user) { FactoryGirl.create(:user, :active => true) }
     subject { Ability.new(user) }
 
-    it { should be_able_to(:manage, Question) }
+    it { should be_able_to(:view_matches, user) }
+    it { should_not be_able_to(:view_matches, FactoryGirl.create(:user)) }
   end
 end

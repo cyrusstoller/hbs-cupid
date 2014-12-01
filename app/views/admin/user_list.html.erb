@@ -5,8 +5,8 @@
     <tr>
       <th>ID</th>
       <th>Email</th>
+      <th>Username</th>
       <th>Signed Up</th>
-      <th>Admin</th>
       <th>Status</th>
       <th></th>
     </tr>
@@ -16,15 +16,14 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.email %> ( <%= user.section %> )</td>
-        <td><%= time_ago_in_words user.created_at %> ago</td>
         <td>
+          <%= user.email %> ( <%= user.section %> )
           <% if user.admin? %>
             <span class="label label-info">Admin</span>
-          <% else %>
-            <span class="label secondary">Regular User</span>
           <% end %>
         </td>
+        <td><%= link_to user.username, matches_path(:username => user.username) %></td>
+        <td><%= time_ago_in_words user.created_at %> ago</td>
         <td>
           <% case user.active %>
           <% when true %>

@@ -25,7 +25,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.2.6'
 
 group :development, :test do
-  gem "foreman", "~> 0.75.0"
+  gem "foreman", "~> 0.77.0"
   
   gem 'annotate', '~> 2.6.3'
   gem "rspec-rails", "~> 3.2.0"

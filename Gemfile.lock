@@ -115,7 +115,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    pg (0.17.1)
+    pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -239,7 +239,7 @@ DEPENDENCIES
   guard-rspec (~> 4.5.0)
   jbuilder (~> 2.2.6)
   jquery-rails
-  pg (= 0.17.1)
+  pg (= 0.18.1)
   rails (= 4.1.9)
   rails_12factor
   rb-fsevent (~> 0.9.4)

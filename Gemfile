@@ -22,17 +22,17 @@ gem 'foundation-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.2.5'
+gem 'jbuilder', '~> 2.2.6'
 
 group :development, :test do
   gem "foreman", "~> 0.75.0"
   
   gem 'annotate', '~> 2.6.3'
-  gem "rspec-rails", "~> 3.1.0"
-  gem "guard-rspec", "~> 4.3.1", :require => false
+  gem "rspec-rails", "~> 3.2.0"
+  gem "guard-rspec", "~> 4.5.0", :require => false
   gem "factory_girl_rails", "~> 4.5.0"
 
-  gem 'spring', '~> 1.1.3'
+  gem 'spring', '~> 1.2.0'
   gem "spring-commands-rspec"
 end
 
@@ -67,11 +67,11 @@ gem 'dotenv-rails'
 
 # Use unicorn as the app server
 gem 'unicorn', '~> 4.8.2'
-gem 'unicorn-worker-killer', "~> 0.4.2"
+gem 'unicorn-worker-killer', "~> 0.4.3"
 
 # Authentication
 gem "devise", "~> 3.4.1"
-gem "cancancan", "~> 1.9.2"
+gem "cancancan", "~> 1.10.1"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

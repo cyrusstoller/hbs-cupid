@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 ruby '2.1.2'
-gem 'rails', '4.1.8'
-gem 'pg', '0.17.1'
+gem 'rails', '4.2.0'
+gem 'pg', '0.18.1'
 
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 2.5.1'
 
@@ -22,17 +22,17 @@ gem 'foundation-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.2.5'
+gem 'jbuilder', '~> 2.2.6'
 
 group :development, :test do
-  gem "foreman", "~> 0.75.0"
+  gem "foreman", "~> 0.77.0"
   
   gem 'annotate', '~> 2.6.3'
-  gem "rspec-rails", "~> 3.1.0"
-  gem "guard-rspec", "~> 4.3.1", :require => false
+  gem "rspec-rails", "~> 3.2.0"
+  gem "guard-rspec", "~> 4.5.0", :require => false
   gem "factory_girl_rails", "~> 4.5.0"
 
-  gem 'spring', '~> 1.1.3'
+  gem 'spring', '~> 1.2.0'
   gem "spring-commands-rspec"
 end
 
@@ -67,11 +67,11 @@ gem 'dotenv-rails'
 
 # Use unicorn as the app server
 gem 'unicorn', '~> 4.8.2'
-gem 'unicorn-worker-killer', "~> 0.4.2"
+gem 'unicorn-worker-killer', "~> 0.4.3"
 
 # Authentication
 gem "devise", "~> 3.4.1"
-gem "cancancan", "~> 1.9.2"
+gem "cancancan", "~> 1.10.1"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
